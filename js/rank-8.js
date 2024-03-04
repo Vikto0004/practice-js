@@ -100,3 +100,14 @@ function grow(x) {
   return multiplication;
 }
 console.log(grow([4, 1, 1, 1, 4]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function calculateEngravingPrice(message, pricePerWord) {
+  const words = message.split(" ");
+  for (let i = 0; i <= words.length; i++) {
+    sum = pricePerWord * i;
+  }
+  return sum;
+}
+console.log(calculateEngravingPrice("JavaScript is in my blood", 20));
