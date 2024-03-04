@@ -1,3 +1,33 @@
 body {
-  background-color: black;
+  /* background-color: rgb(87, 184, 128); */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.box {
+  transform: rotate(180deg);
+}
+
+svg {
+  max-width: 250px;
+  max-height: 300px;
+}
+
+path {
+  stroke: rgb(0, 0, 0);
+  fill: rgb(203, 95, 95);
+  stroke-width: 6;
+  stroke-dasharray: 19000;
+  stroke-dashoffset: 19000;
+  animation: draw 60s linear forwards;
+}
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
