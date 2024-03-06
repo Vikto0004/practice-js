@@ -1,5 +1,7 @@
 body {
   /* background-color: rgb(87, 184, 128); */
+  margin: 0;
+  background: linear-gradient(to bottom, #d0e5a9, #bcd89e, #a7cb93, #92be88);
 }
 
 .container {
@@ -7,6 +9,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  padding: 0 5px;
 }
 
 .box {
@@ -15,12 +18,15 @@ body {
 
 svg {
   max-width: 250px;
-  max-height: 300px;
+  max-height: 240px;
+  /* position: absolute;
+  top: 330px;
+  left: 0; */
 }
 
 path {
   stroke: rgb(0, 0, 0);
-  fill: rgb(203, 95, 95);
+  fill: rgb(34, 136, 46);
   stroke-width: 6;
   stroke-dasharray: 19000;
   stroke-dashoffset: 19000;
@@ -30,4 +36,12 @@ path {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+.prg {
+  font-family: "Caveat", cursive;
+  font-weight: 500;
+  font-size: 18px;
+  max-width: 180px;
+  margin: 0 auto;
 }
