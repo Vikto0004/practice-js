@@ -64,3 +64,18 @@ console.log(gaslighting("mqmibrslynuiy", "cpurtfwrguwlo", "qoixslpb"));
 // True - якщо ваш друг може зрозуміти, що ви його дурите
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+
+function flickSwitch(arr) {
+  const array = [];
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    element = true;
+    array.push(element);
+    if (i === arr.indexOf("flick")) {
+      let result = arr.slice(i);
+      array.push(result);
+    }
+  }
+  return array;
+}
+console.log(flickSwitch(["bicycle", "jarmony", "flick", "sheep", "flick"]));
