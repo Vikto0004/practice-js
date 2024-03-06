@@ -112,6 +112,46 @@ function calculateEngravingPrice(message, pricePerWord) {
 }
 console.log(calculateEngravingPrice("JavaScript is in my blood", 20));
 
-const a = [1, 2, 3];
-const b = a;
-console.log(a === b);
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function calculateTotalPrice(order) {
+  let sum = 0;
+  for (let i = 0; i < order.length; i++) {
+    const element = order[i];
+    sum += element;
+  }
+  return sum;
+}
+console.log(calculateTotalPrice([12, 85, 37, 4]));
+
+function checkStorage(storage, item) {
+  const storageSearch = storage.map((storag) => storag.toLowerCase());
+  if (storageSearch.includes(item.toLowerCase())) {
+    return `${item.toLowerCase()} is available to order!`;
+  } else {
+    return "Sorry! We are out of stock!";
+  }
+}
+
+console.log(checkStorage(["apple", "plum", "pear"], "pEAr"));
+
+function getCommonElements(array1, array2) {
+  const couple = [];
+  for (let i = 0; i < array1.length && i < array2.length; i++) {
+    const element = array1[i];
+    if (array2.includes(element)) {
+      couple.push(element);
+    }
+  }
+  return couple;
+}
+console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19])); // [1, 2]
+
+function calculateTotalPrice(order) {
+  let sum = 0;
+  for (const array of order) {
+    sum += array;
+  }
+  return sum;
+}
+console.log(calculateTotalPrice([]));

@@ -20,3 +20,47 @@ function bubbleSort(arr) {
 // Приклад використання
 let array = [5, 3, 8, 4, 2];
 console.log(bubbleSort(array)); // Output: [2, 3, 4, 5, 8]
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function gaslighting(shirtWord, yourWord, friendsLetters) {
+  const arrayShirtWord = [];
+  const arrayYourWord = [];
+  const arrayFriendsLetters = [];
+  let number = 0;
+
+  for (let i = 0; i < shirtWord.length; i++) {
+    arrayShirtWord.push(shirtWord[i]);
+  }
+  for (let i = 0; i < yourWord.length; i++) {
+    arrayYourWord.push(yourWord[i]);
+  }
+  for (let i = 0; i < friendsLetters.length; i++) {
+    arrayFriendsLetters.push(friendsLetters[i]);
+  }
+  for (
+    let i = 0;
+    i < shirtWord.length || i < yourWord.length || i < friendsLetters.length;
+    i++
+  ) {
+    if (arrayFriendsLetters.includes(arrayShirtWord[i])) {
+      number++;
+    } else if (arrayFriendsLetters.includes(arrayYourWord[i])) {
+      return true;
+    }
+    if (number >= 1) {
+      return arrayFriendsLetters.includes(arrayYourWord[i]) ? false : true;
+    }
+    if (arrayFriendsLetters[0] === undefined) {
+      return false;
+    }
+  }
+
+  return number === 0 ? false : true;
+}
+console.log(gaslighting("mqmibrslynuiy", "cpurtfwrguwlo", "qoixslpb"));
+
+// False - означатиме, що ваш друг не може зрозуміти, що ви його дурите
+// True - якщо ваш друг може зрозуміти, що ви його дурите
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
