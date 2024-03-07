@@ -63,19 +63,17 @@ console.log(gaslighting("mqmibrslynuiy", "cpurtfwrguwlo", "qoixslpb"));
 // False - означатиме, що ваш друг не може зрозуміти, що ви його дурите
 // True - якщо ваш друг може зрозуміти, що ви його дурите
 
-//-------------------------------------- EXAMPLE ----------------------------------- //
-
-function flickSwitch(arr) {
-  const array = [];
-  for (let i = 0; i < arr.length; i++) {
-    let element = arr[i];
-    element = true;
-    array.push(element);
-    if (i === arr.indexOf("flick")) {
-      let result = arr.slice(i);
-      array.push(result);
-    }
+function filter_list(l) {
+  let list = [];
+  for (let i = 0; i < l.length; i++) {
+    typeof l[i] === "string" ? undefined : list.push(l[i]);
   }
-  return array;
+  return list;
 }
-console.log(flickSwitch(["bicycle", "jarmony", "flick", "sheep", "flick"]));
+console.log(filter_list([1, 2, "aasf", "1", 123, 123]));
+
+function createReversedArray() {
+  let argsArray = Array.from(arguments);
+  return argsArray.reverse();
+}
+console.log(createReversedArray(12, 85, 37, 4));
