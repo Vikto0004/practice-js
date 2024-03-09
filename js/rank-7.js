@@ -77,3 +77,57 @@ function createReversedArray() {
   return argsArray.reverse();
 }
 console.log(createReversedArray(12, 85, 37, 4));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function flickNumber(arr) {
+  const array = [];
+  let index = 0;
+  const end = arr.indexOf("flick");
+  if (end > -1) {
+    const subArray = arr.slice(0, end);
+    for (let i = 0; i < subArray.length; i++) {
+      array.push(true);
+    }
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      array.push(true);
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "flick") {
+      index++;
+      if (index % 2 === 0) {
+        const end = arr.indexOf("flick", i + 1);
+        if (end === -1) {
+          const subArray = arr.slice(i);
+          for (let indexEnd = 0; indexEnd < subArray.length; indexEnd++) {
+            array.push(true);
+          }
+        } else {
+          const subArray = arr.slice(i, end);
+          for (let i = 0; i < subArray.length; i++) {
+            array.push(true);
+          }
+        }
+      } else {
+        const end = arr.indexOf("flick", i + 1);
+        if (end === -1) {
+          const subArray = arr.slice(i);
+          for (let indexEnd = 0; indexEnd < subArray.length; indexEnd++) {
+            array.push(false);
+          }
+        } else {
+          const subArray = arr.slice(i, end);
+          for (let i = 0; i < subArray.length; i++) {
+            array.push(false);
+          }
+        }
+      }
+    }
+  }
+  return array;
+}
+console.log(flickNumber(["bicycle", "bicycle"]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //

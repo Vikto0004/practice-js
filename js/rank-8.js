@@ -154,4 +154,4 @@ function calculateTotalPrice(order) {
   }
   return sum;
 }
-console.log(calculateTotalPrice([]));
+console.log(calculateTotalPrice([4, 3, 2]));
