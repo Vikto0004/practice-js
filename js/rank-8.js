@@ -155,3 +155,36 @@ function calculateTotalPrice(order) {
   return sum;
 }
 console.log(calculateTotalPrice([4, 3, 2]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function countSheeps(sheep) {
+  let number = 0;
+  for (const element of sheep) {
+    element === true ? number++ : (number += 0);
+  }
+  return number;
+}
+console.log(countSheeps([undefined, null, false, true]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+  tags: ["premium", "promoted", "top"],
+  owner: {
+    name: "Henry",
+    phone: "982-126-1588",
+    email: "henry.carter@aptmail.com",
+  },
+};
+
+const ownerName = apartment.owner.name;
+const ownerPhone = apartment.owner.phone;
+const ownerEmail = apartment.owner.email;
+const numberOfTags = apartment.tags.length;
+const firstTag = apartment.tags[0];
+const lastTag = apartment.tags[apartment.tags.length - 1];

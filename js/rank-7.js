@@ -131,3 +131,23 @@ function flickNumber(arr) {
 console.log(flickNumber(["bicycle", "bicycle"]));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+
+function flickSwitch(arr) {
+  const newArr = [];
+  let switcher = true;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== "flick") {
+      newArr.push(switcher);
+    } else {
+      switcher = !switcher;
+      newArr.push(switcher);
+    }
+  }
+  return newArr;
+}
+console.log(
+  flickSwitch(["nkejn", "fdjn", "lick", "flick", "lick", "lick", "flick"])
+);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
