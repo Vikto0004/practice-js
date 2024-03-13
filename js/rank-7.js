@@ -151,3 +151,181 @@ console.log(
 );
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+
+function naughtyOrNice(data) {
+  const keys = Object.keys(data);
+  let naughy = 0;
+  let nice = 0;
+  for (let i = 0; i < keys.length; i++) {
+    const months = keys[i];
+    const values = Object.values(data[months]);
+    for (const element of values) {
+      if (element === "Naughty") {
+        naughy++;
+      } else {
+        nice++;
+      }
+    }
+  }
+  if (naughy > nice) {
+    return "Naughty!";
+  } else {
+    return "Nice!";
+  }
+}
+console.log(
+  naughtyOrNice({
+    January: {
+      1: "Naughty",
+      2: "Naughty",
+      31: "Nice",
+    },
+    December: {
+      1: "Nice",
+      2: "Nice",
+      31: "Naughty",
+    },
+  })
+);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function getNiceNames(people) {
+  const nicePerson = [];
+  for (const person of people) {
+    if (person.wasNice) {
+      nicePerson.push(person.name);
+    }
+  }
+  return nicePerson;
+}
+console.log(getNiceNames(["Santa", "Warrior reading this kata"]));
+
+function getNaughtyNames(people) {
+  const naughtyPerson = [];
+  for (const person of people) {
+    if (person.wasNice === undefined) {
+    } else if (!person.wasNice) {
+      naughtyPerson.push(person.name);
+    }
+  }
+  return naughtyPerson;
+}
+console.log(getNaughtyNames(["Santa", "Warrior reading this kata"]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function scoreThrows(radii) {
+  let points = 0;
+  let number = 0;
+  for (const element of radii) {
+    if (element > 10) {
+      points += 0;
+    } else if (element >= 5 && element <= 10) {
+      points += 5;
+    } else if (element < 5) {
+      points += 10;
+      number++;
+      if (number === radii.length) {
+        points += 100;
+      }
+    }
+  }
+  return points;
+}
+console.log(scoreThrows([3, 2, 3, 4]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function sortList(sortBy, list) {
+  const newList = [];
+  const arr = [];
+  const secondArr = [];
+  const copySecondArr = [];
+  let index = 0;
+  let secondIndex = 0;
+  for (const object of list) {
+    for (const key in object) {
+      if (key === sortBy) {
+        arr.push(object[key]);
+      } else {
+        secondArr.push(object[key]);
+        copySecondArr.push(object[key]);
+      }
+    }
+  }
+  secondArr[0] = copySecondArr[copySecondArr.length - 1];
+  secondArr[secondArr.length - 1] = copySecondArr[0];
+  const newArr = arr.sort((a, b) => b - a);
+  for (const objects of list) {
+    for (const keys in objects) {
+      if (keys === sortBy) {
+        objects[keys] = newArr[index++];
+      } else {
+        objects[keys] = secondArr[secondIndex++];
+        newList.push(objects);
+      }
+    }
+  }
+
+  return `${newList}`;
+}
+console.log(
+  sortList("a", [
+    { a: 1, b: 3 },
+    { a: 3, b: 2 },
+    { a: 2, b: 40 },
+    { a: 4, b: 12 },
+  ])
+);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const questions = [
+  {
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0,
+  },
+  {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0,
+  },
+];
+for (const object of questions) {
+  object.usersAnswer = null;
+}
+console.log(questions);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function strCount(obj) {
+  let count = 0;
+  for (const value of Object.values(obj)) {
+    if (typeof value === "string") {
+      count++;
+    } else if (typeof value === "object" && value !== null) {
+      count += strCount(value);
+    }
+  }
+
+  return count;
+}
+console.log(
+  strCount({
+    first: "1",
+    second: "2",
+    third: false,
+    fourth: ["anytime", 2, 3, 4],
+    fifth: null,
+    sixth: undefined,
+    seventh: {},
+  })
+);
+const arrayG = [];
+if (Array.isArray(arrayG)) {
+  // console.log("Масив");
+} else {
+  // console.log("Не масив");
+}

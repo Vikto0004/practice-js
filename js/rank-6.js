@@ -1,14 +1,38 @@
-// Напишіть функцію findMissingElements, яка приймає два масиви чисел і повертає
-// масив, який містить всі елементи з першого масиву, які відсутні в другому масиві.
-const numbers1 = [1, 2, 3, 4, 5];
-const numbers2 = [1, 2, 4, 6];
-function findMissingElements(numbers1, numbers2) {
-  const array = [];
-  for (const element of numbers1) {
-    if (!numbers2.includes(element)) {
-      array.push(element);
-    }
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function wordsToObject(input) {
+  const array = input.split(" ");
+  const wordsObjectArr = [];
+  for (let i = 0; i < array.length; i += 2) {
+    const element = array[i];
+    wordsObjectArr.push([element, array[i + 1]]);
   }
-  return array;
+
+  const objects = [];
+
+  for (const [value, id] of wordsObjectArr) {
+    const obj = {};
+    obj["name"] = value;
+    obj["id"] = id;
+    objects.push(obj);
+  }
+  return objects;
 }
-console.log(findMissingElements(numbers1, numbers2));
+console.log(wordsToObject("red 1 yellow 2 black 3 white 4"));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function numObj(s) {
+  const objects = [];
+  const arr = [];
+  for (const element of s) {
+    arr.push([element]);
+  }
+  for (const keys of arr) {
+    const obj = {};
+    obj[keys] = String.fromCharCode(keys);
+    objects.push(obj);
+  }
+  return objects;
+}
+console.log(numObj([118, 117, 120])); //[{'118':'v'}, {'117':'u'}, {'120':'x'}]

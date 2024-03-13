@@ -122,7 +122,7 @@ function calculateTotalPrice(order) {
   }
   return sum;
 }
-console.log(calculateTotalPrice([12, 85, 37, 4]));
+// console.log(calculateTotalPrice([12, 85, 37, 4]));
 
 function checkStorage(storage, item) {
   const storageSearch = storage.map((storag) => storag.toLowerCase());
@@ -154,7 +154,7 @@ function calculateTotalPrice(order) {
   }
   return sum;
 }
-console.log(calculateTotalPrice([4, 3, 2]));
+// console.log(calculateTotalPrice([4, 3, 2]));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -169,22 +169,45 @@ console.log(countSheeps([undefined, null, false, true]));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
-const apartment = {
-  imgUrl: "https://via.placeholder.com/640x480",
-  descr: "Spacious apartment in the city center",
-  rating: 4,
-  price: 2153,
-  tags: ["premium", "promoted", "top"],
-  owner: {
-    name: "Henry",
-    phone: "982-126-1588",
-    email: "henry.carter@aptmail.com",
-  },
-};
+// const apartment = {
+//   imgUrl: "https://via.placeholder.com/640x480",
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+//   tags: ["premium", "promoted", "top"],
+//   owner: {
+//     name: "Henry",
+//     phone: "982-126-1588",
+//     email: "henry.carter@aptmail.com",
+//   },
+// };
 
-const ownerName = apartment.owner.name;
-const ownerPhone = apartment.owner.phone;
-const ownerEmail = apartment.owner.email;
-const numberOfTags = apartment.tags.length;
-const firstTag = apartment.tags[0];
-const lastTag = apartment.tags[apartment.tags.length - 1];
+// const ownerName = apartment.owner.name;
+// const ownerPhone = apartment.owner.phone;
+// const ownerEmail = apartment.owner.email;
+// const numberOfTags = apartment.tags.length;
+// const firstTag = apartment.tags[0];
+// const lastTag = apartment.tags[apartment.tags.length - 1];
+function getAllPropValues(propName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+  const totalValues = [];
+  for (const product of products) {
+    if (product[propName]) {
+      totalValues.push(product[propName]);
+    }
+  }
+  return totalValues;
+}
+console.log(getAllPropValues("category"));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function animal(obj) {
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+}
+console.log(animal({ name: "dog", legs: 4, color: "white" }));
