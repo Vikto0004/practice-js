@@ -36,3 +36,23 @@ function numObj(s) {
   return objects;
 }
 console.log(numObj([118, 117, 120])); //[{'118':'v'}, {'117':'u'}, {'120':'x'}]
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Stone skin", price: 520 },
+  ],
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    this.potions.push(newPotion);
+  },
+  getTotalPrice() {
+    this.potions.price;
+  },
+};
+atTheOldToad.addPotion("nvj");
+// console.log(newPotion);
