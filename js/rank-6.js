@@ -56,3 +56,16 @@ const atTheOldToad = {
 };
 atTheOldToad.addPotion("nvj");
 // console.log(newPotion);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function winner(deckSteve, deckJosh) {
+  return deckSteve;
+}
+console.log(
+  winner([
+    ["A", "7", "8"],
+    ["K", "5", "9"],
+  ])
+);
+console.log("T".charCodeAt(0));

@@ -324,8 +324,50 @@ console.log(
   })
 );
 const arrayG = [];
-if (Array.isArray(arrayG)) {
-  // console.log("Масив");
-} else {
-  // console.log("Не масив");
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function returnSpecifics(obj) {
+  const result = [];
+  for (const value of Object.values(obj)) {
+    if (typeof value === "number") result.push(value);
+  }
+  for (const value of Object.values(obj)) {
+    if (typeof value === "function") {
+      const keys = Object.keys(obj).find((key) => obj[key] === value);
+      result.push(keys);
+    }
+  }
+  if (result.length === 0) result.push("The Object is Empty");
+  return result;
 }
+console.log(returnSpecifics({})); //[10,-20,50,100,'subtract']
+
+const a = { 1: "1", 2: "2", 3: "3" },
+  b = { 3: "4", 5: "6", 6: "7", 7: "8" },
+  c = { 5: "9", 8: "9", 6: "12", 23: "35" },
+  o = [a, b, c];
+
+// Функція для повторення значення n разів
+function repeat(value, n) {
+  return Array(n).fill(value);
+}
+
+function stonePick(arr) {
+  let sticks = 0;
+  let cobblestone = 0;
+  let pickaxes = 0;
+  for (const element of arr) {
+    if (element === "Sticks") sticks++;
+    else if (element === "Cobblestone") cobblestone++;
+    else if (element === "Wood") sticks += 4;
+  }
+  let numberTheSticks = Math.floor(sticks / 2);
+  let numberTheCobblestone = Math.floor(cobblestone / 3);
+  if (numberTheSticks > numberTheCobblestone) pickaxes = cobblestone / 3;
+  else if (numberTheSticks < numberTheCobblestone) pickaxes = sticks / 2;
+  else pickaxes = numberTheSticks;
+  return Math.floor(pickaxes);
+}
+
+console.log(stonePick([...repeat("Wood", 51), ...repeat("Cobblestone", 91)]));
