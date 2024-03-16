@@ -60,12 +60,39 @@ atTheOldToad.addPotion("nvj");
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
 function winner(deckSteve, deckJosh) {
-  return deckSteve;
+  const deck = {
+    A: 14,
+    K: 13,
+    Q: 12,
+    J: 11,
+    T: 10,
+    9: 9,
+    8: 8,
+    7: 7,
+    6: 6,
+    5: 5,
+    4: 4,
+    3: 3,
+    2: 2,
+  };
+  let deckStevePoints = 0;
+  let deckJoshPoints = 0;
+  for (let i = 0; i < deckSteve.length; i++) {
+    let valueDeckSteve = 0;
+    let valueDeckJosh = 0;
+    for (const keySteve in deck) {
+      if (keySteve === deckSteve[i]) valueDeckSteve = deck[keySteve];
+    }
+    for (const keyJosh in deck) {
+      if (keyJosh === deckJosh[i]) valueDeckJosh = deck[keyJosh];
+    }
+    if (valueDeckSteve > valueDeckJosh) deckStevePoints++;
+    else if (valueDeckSteve < valueDeckJosh) deckJoshPoints++;
+  }
+  if (deckStevePoints > deckJoshPoints) {
+    return `Steve wins ${deckStevePoints} to ${deckJoshPoints}`;
+  } else if (deckStevePoints < deckJoshPoints) {
+    return `Josh wins ${deckJoshPoints} to ${deckStevePoints}`;
+  } else return "Tie";
 }
-console.log(
-  winner([
-    ["A", "7", "8"],
-    ["K", "5", "9"],
-  ])
-);
-console.log("T".charCodeAt(0));
+console.log(winner(["T", "A"], ["Q", "A"]));

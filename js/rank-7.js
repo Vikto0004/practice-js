@@ -371,3 +371,81 @@ function stonePick(arr) {
 }
 
 console.log(stonePick([...repeat("Wood", 51), ...repeat("Cobblestone", 91)]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function sort(items) {
+  for (let i = 1; i < items.length; i++) {
+    let current = items[i];
+    let j = i - 1;
+    while (j >= 0 && items[j] > current) {
+      items[j + 1] = items[j];
+      j--;
+    }
+    items[j + 1] = current;
+  }
+  return items;
+}
+console.log(sort([1, 3, 2, 3, 4, 1]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function createPhoneNumber(numbers) {
+  const newNumbers = [];
+  for (let i = 0; i < numbers.length; i++) {
+    const element = numbers[i];
+    if (i === 0) {
+      newNumbers.push("(");
+      newNumbers.push(element);
+    } else if (i === 2) {
+      newNumbers.push(element);
+      newNumbers.push(") ");
+    } else if (i === 5) {
+      newNumbers.push(element);
+      newNumbers.push("-");
+    } else newNumbers.push(element);
+  }
+  return newNumbers.join("");
+}
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const people = [
+  "Easter Bunny",
+  "Tooth Fairy",
+  "Frosty the Snowman",
+  "Jack Frost",
+  "Cupid",
+  "Father Time",
+];
+const responses = [
+  { name: "Easter Bunny", response: "declined" },
+  { name: "Jack Frost", response: "declined" },
+  { name: "Tooth Fairy", response: "accepted" },
+];
+
+function getAttendees(peopleInvited, responses) {
+  const result = [];
+  const unknown = [];
+
+  for (const object of responses) {
+    if (object.response === "accepted") {
+      result.push(object.name);
+    } else {
+      unknown.push(object.name);
+    }
+  }
+
+  for (const namePerson of peopleInvited) {
+    if (!unknown.includes(namePerson) && !result.includes(namePerson)) {
+      result.push(namePerson);
+    }
+  }
+
+  return result;
+}
+
+console.log(getAttendees(people, responses));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
