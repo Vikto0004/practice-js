@@ -449,3 +449,16 @@ function getAttendees(peopleInvited, responses) {
 console.log(getAttendees(people, responses));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+
+function obtainMaxNumber(arr) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    for (let index = 0; index < arr.length; index++) {
+      if (element === arr[i + 1]) {
+        element += arr[i + 1];
+      }
+    }
+  }
+}
+console.log(obtainMaxNumber([2, 4, 8, 1, 1, 15, 15, 7, 7, 7, 7, 7, 7, 7])); // 30
