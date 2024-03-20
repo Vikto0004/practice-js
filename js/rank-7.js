@@ -411,54 +411,77 @@ console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
-const people = [
-  "Easter Bunny",
-  "Tooth Fairy",
-  "Frosty the Snowman",
-  "Jack Frost",
-  "Cupid",
-  "Father Time",
-];
-const responses = [
-  { name: "Easter Bunny", response: "declined" },
-  { name: "Jack Frost", response: "declined" },
-  { name: "Tooth Fairy", response: "accepted" },
-];
+// const people = [
+//   "Easter Bunny",
+//   "Tooth Fairy",
+//   "Frosty the Snowman",
+//   "Jack Frost",
+//   "Cupid",
+//   "Father Time",
+// ];
+// const responses = [
+//   { name: "Easter Bunny", response: "declined" },
+//   { name: "Jack Frost", response: "declined" },
+//   { name: "Tooth Fairy", response: "accepted" },
+// ];
 
-function getAttendees(peopleInvited, responses) {
-  const result = [];
-  const unknown = [];
+// function getAttendees(peopleInvited, responses) {
+//   const result = [];
+//   const unknown = [];
+//   for (const object of responses) {
+//     if (object.response === "accepted") {
+//       result.push(object.name);
+//     } else {
+//       unknown.push(object.name);
+//     }
+//   }
+//   for (const namePerson of peopleInvited) {
+//     if (!unknown.includes(namePerson) && !result.includes(namePerson)) {
+//       result.push(namePerson);
+//     }
+//   return result;
+// }
 
-  for (const object of responses) {
-    if (object.response === "accepted") {
-      result.push(object.name);
-    } else {
-      unknown.push(object.name);
-    }
-  }
-
-  for (const namePerson of peopleInvited) {
-    if (!unknown.includes(namePerson) && !result.includes(namePerson)) {
-      result.push(namePerson);
-    }
-  }
-
-  return result;
-}
-
-console.log(getAttendees(people, responses));
+// console.log(getAttendees(people, responses));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
-function obtainMaxNumber(arr) {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    for (let index = 0; index < arr.length; index++) {
-      if (element === arr[i + 1]) {
-        element += arr[i + 1];
-      }
-    }
-  }
-}
-console.log(obtainMaxNumber([2, 4, 8, 1, 1, 15, 15, 7, 7, 7, 7, 7, 7, 7])); // 30
+// function obtainMaxNumber(arr) {
+//   const newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     const element = arr[i];
+//     for (let index = 0; index < arr.length; index++) {
+//       if (element === arr[i + 1]) {
+//         element += arr[i + 1];
+//       }
+//     }
+//   }
+// }
+// console.log(obtainMaxNumber([2, 4, 8, 1, 1, 15, 15, 7, 7, 7, 7, 7, 7, 7])); // 30
+
+//!-------------------------------------- EXAMPLE ----------------------------------- //
+
+const getAttendees = (peopleInvited, responses) => {
+  // Круто зробив )))
+  return responses
+    .filter(({ response }) => response === "accepted")
+    .map(({ name }) => name)
+    .concat(
+      peopleInvited.filter(
+        (nameInvited) =>
+          !responses.map(({ name }) => name).includes(nameInvited)
+      )
+    );
+};
+console.log(
+  getAttendees(
+    ["Easter Bunny", "Tooth Fairy", "Frosty the Snowman", "Jack Frost"],
+    [
+      { name: "Easter Bunny", response: "declined" },
+      { name: "Jack Frost", response: "declined" },
+      { name: "Tooth Fairy", response: "accepted" },
+    ]
+  )
+);
+
+//?-------------------------------------- EXAMPLE ----------------------------------- //
