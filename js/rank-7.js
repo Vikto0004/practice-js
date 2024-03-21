@@ -462,7 +462,7 @@ console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 //!-------------------------------------- EXAMPLE ----------------------------------- //
 
 const getAttendees = (peopleInvited, responses) => {
-  // Круто зробив )))
+  // Круто зробив
   return responses
     .filter(({ response }) => response === "accepted")
     .map(({ name }) => name)
@@ -485,3 +485,133 @@ console.log(
 );
 
 //?-------------------------------------- EXAMPLE ----------------------------------- //
+const users = [
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    skills: ["ipsum", "lorem"],
+    gender: "male",
+    age: 37,
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+    gender: "female",
+    age: 34,
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+    gender: "male",
+    age: 24,
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    skills: ["adipisicing", "irure", "velit"],
+    gender: "female",
+    age: 21,
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    skills: ["ex", "culpa", "nostrud"],
+    gender: "male",
+    age: 27,
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    skills: ["non", "amet", "ipsum"],
+    gender: "male",
+    age: 38,
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    skills: ["lorem", "veniam", "culpa"],
+    gender: "female",
+    age: 39,
+  },
+];
+const getUserEmails = (users) => {
+  return users.map((element) => element).flatMap(({ email }) => email);
+};
+console.log(getUserEmails(users));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+var a1 = ["A042", "B004", "A025", "A042", "C025"];
+var a2 = ["B009", "B040", "B004", "A042", "A025", "A042"];
+var a3 = ["A042", "A025", "B004"];
+
+function idBestUsers(...arr) {
+  const newArr = arr.flatMap((element) => element);
+  const result = [];
+  for (let i = 0; i < newArr.length; i++) {
+    const element = newArr[i];
+    if (
+      newArr.indexOf(element, i + 1) !== -1 &&
+      newArr.indexOf(element) !== i
+    ) {
+      let sum = 1;
+      for (
+        let index = newArr.indexOf(element) + 1;
+        index < newArr.length;
+        index++
+      ) {
+        if (element === newArr[index]) {
+          sum++;
+        }
+      }
+      const variableArr = [sum, [element]];
+      result.push(variableArr);
+    }
+  }
+  return newArr;
+}
+
+console.log(idBestUsers(a1, a2, a3));
+
+const players = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+
+let acc = 0;
+
+const totalAveragePlaytimePerGame = players.reduce(
+  (previousValue, element) => (acc += element.playtime / element.gamesPlayed)
+);
