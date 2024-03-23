@@ -303,9 +303,8 @@ console.log(questions);
 function strCount(obj) {
   let count = 0;
   for (const value of Object.values(obj)) {
-    if (typeof value === "string") {
-      count++;
-    } else if (typeof value === "object" && value !== null) {
+    if (typeof value === "string") count++;
+    else if (typeof value === "object" && value !== null) {
       count += strCount(value);
     }
   }
@@ -571,38 +570,6 @@ console.log(getUserEmails(users));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
-var a1 = ["A042", "B004", "A025", "A042", "C025"];
-var a2 = ["B009", "B040", "B004", "A042", "A025", "A042"];
-var a3 = ["A042", "A025", "B004"];
-
-function idBestUsers(...arr) {
-  const newArr = arr.flatMap((element) => element);
-  const result = [];
-  for (let i = 0; i < newArr.length; i++) {
-    const element = newArr[i];
-    if (
-      newArr.indexOf(element, i + 1) !== -1 &&
-      newArr.indexOf(element) !== i
-    ) {
-      let sum = 1;
-      for (
-        let index = newArr.indexOf(element) + 1;
-        index < newArr.length;
-        index++
-      ) {
-        if (element === newArr[index]) {
-          sum++;
-        }
-      }
-      const variableArr = [sum, [element]];
-      result.push(variableArr);
-    }
-  }
-  return newArr;
-}
-
-console.log(idBestUsers(a1, a2, a3));
-
 const players = [
   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
   { name: "Poly", playtime: 469, gamesPlayed: 2 },
@@ -610,8 +577,63 @@ const players = [
   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
 ];
 
-let acc = 0;
+const totalAveragePlaytimePerGame = players.reduce((acc, element) => {
+  return acc + element.playtime / element.gamesPlayed;
+}, 0);
+console.log(totalAveragePlaytimePerGame);
 
-const totalAveragePlaytimePerGame = players.reduce(
-  (previousValue, element) => (acc += element.playtime / element.gamesPlayed)
-);
+const calculateTotalBalance = (users) => {
+  return users.reduce((acc, element) => {
+    return acc + element.balance;
+  }, 0);
+};
+console.log(calculateTotalBalance(users));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  {
+    title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+
+const names = books
+  .filter(({ rating }) => rating > MIN_BOOK_RATING)
+  .map(({ author }) => author)
+  .toSorted((firstStudent, secondStudent) =>
+    firstStudent.localeCompare(secondStudent)
+  );
+console.log(names);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const arrayV = [3, 3, 3, 1, 4, 3, 3, 3, 0, 3];
+
+const arrr1 = (arrayV) => {
+  const result = [];
+  for (let i = 0; i < arrayV.length; i += arrayV[i]) {
+    result.push(arrayV[i]);
+    if (arrayV[i] === 0) return false;
+  }
+  if (result.length < arrayV.length) return true;
+};
+console.log(arrr1(arrayV));
