@@ -96,3 +96,49 @@ function winner(deckSteve, deckJosh) {
   } else return "Tie";
 }
 console.log(winner(["T", "A"], ["Q", "A"]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function digitalRoot(n) {
+  const array = n.toString().split("");
+  for (let index = 0; index < array.length; index) {
+    let result = 0;
+    for (const element of array) {
+      result += parseInt(element);
+    }
+    array.splice(0, array.length);
+    const newArray = result.toString().split("");
+    for (const iterator of newArray) {
+      array.push(iterator);
+    }
+    if (array.length === 1) return parseInt(array.join());
+  }
+}
+console.log(digitalRoot(966503));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+function latestClock(a, b, c, d) {
+  const clocks = [a, b, c, d];
+  const hourse = [];
+  const minute = [];
+  for (let i = 0; i < clocks.length; i++) {
+    let elementA = clocks[i];
+    for (let index = 0; index < clocks.length; index++) {
+      const elementB = clocks[index];
+      if (index !== i) {
+        let numberClock = parseInt(`${elementA}${elementB}`);
+      }
+      if (numberClock < 24) {
+        hourse.push(numberClock);
+      } else if (numberClock < 60) {
+        minute.push(numberClock);
+      }
+    }
+  }
+  return hourse;
+}
+console.log(latestClock(9, 1, 2, 5)); //"21:59";
+
+const s = 2;
+console.log(typeof parseInt(`${s}`));
