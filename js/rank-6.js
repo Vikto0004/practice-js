@@ -118,27 +118,29 @@ console.log(digitalRoot(966503));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
-function latestClock(a, b, c, d) {
-  const clocks = [a, b, c, d];
-  const hourse = [];
-  const minute = [];
-  for (let i = 0; i < clocks.length; i++) {
-    let elementA = clocks[i];
-    for (let index = 0; index < clocks.length; index++) {
-      const elementB = clocks[index];
-      if (index !== i) {
-        let numberClock = parseInt(`${elementA}${elementB}`);
-      }
-      if (numberClock < 24) {
-        hourse.push(numberClock);
-      } else if (numberClock < 60) {
-        minute.push(numberClock);
-      }
-    }
-  }
-  return hourse;
-}
-console.log(latestClock(9, 1, 2, 5)); //"21:59";
+// function latestClock(a, b, c, d) {
+//   const clocks = [a, b, c, d];
+//   const hourse = [];
+//   const minute = [];
+//   for (let i = 0; i < clocks.length; i++) {
+//     let elementA = clocks[i];
+//     for (let index = 0; index < clocks.length; index++) {
+//       const elementB = clocks[index];
+//       if (index !== i) {
+//         let numberClock = parseInt(`${elementA}${elementB}`);
+//       }
+//       if (numberClock < 24) {
+//         hourse.push(numberClock);
+//       } else if (numberClock < 60) {
+//         minute.push(numberClock);
+//       }
+//     }
+//   }
+//   return hourse;
+// }
+// console.log(latestClock(9, 1, 2, 5)); //"21:59";
 
-const s = 2;
-console.log(typeof parseInt(`${s}`));
+// const s = 2;
+// console.log(typeof parseInt(`${s}`));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
