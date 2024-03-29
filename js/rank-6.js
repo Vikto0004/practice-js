@@ -144,3 +144,40 @@ console.log(digitalRoot(966503));
 // console.log(typeof parseInt(`${s}`));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+const arr = [
+  ["B004", "A042", "A025", "A042", "C025"],
+  ["B009", "B040", "B004", "A042", "A025", "A042"],
+  ["A042", "A025", "B004"],
+];
+const item = "A042"; // Припустимо, що ви шукаєте цей елемент
+
+// Починаємо перевірку з другого масиву
+const itemExistsInAllArrays = arr
+  .slice(1)
+  .every((subArray) => subArray.includes(item));
+
+console.log(itemExistsInAllArrays); // Виведе true або false в залежності від того, чи є item в усіх підмасивах, крім першого
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+class Lamp {
+  constructor(color) {
+    this.color = color;
+    this.on = false;
+  }
+  toggleSwitch() {
+    this.on ? (this.on = false) : (this.on = true);
+  }
+  state() {
+    if (!this.on) return "The lamp is off.";
+    else return "The lamp is on.";
+  }
+}
+
+const myLamp = new Lamp("Blue");
+const myLamp1 = new Lamp("Blue1");
+
+myLamp.toggleSwitch();
+console.log(myLamp.state());
+myLamp.toggleSwitch();
+console.log(myLamp.state());

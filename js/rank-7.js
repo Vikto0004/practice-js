@@ -637,3 +637,41 @@ const arrr1 = (arrayV) => {
   if (result.length < arrayV.length) return true;
 };
 console.log(arrr1(arrayV));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const whoAteWhat = [
+  { name: "Billy The Beast", chickenwings: 17, hamburgers: 7, hotdogs: 8 },
+  { name: "Habanero Hillary", chickenwings: 5, hamburgers: 17, hotdogs: 11 },
+  { name: "Joey Jaws", chickenwings: 8, hamburgers: 8, hotdogs: 15 },
+  { name: "Big Bob", chickenwings: 8, hamburgers: 8, hotdogs: 15 },
+];
+
+function scoreboard(whoAteWhat) {
+  // your code here..
+  const result = [];
+  for (const iterator of whoAteWhat) {
+    const obj = {};
+    obj.name = iterator.name;
+    obj.score =
+      iterator.chickenwings * 5 +
+      iterator.hamburgers * 3 +
+      iterator.hotdogs * 2;
+    result.push(obj);
+  }
+  result.sort(function (a, b) {
+    if (b.score === a.score) {
+      return a.name.localeCompare(b.name);
+    } else {
+      return b.score - a.score;
+    }
+  });
+  return result;
+}
+console.log(scoreboard(whoAteWhat));
+// result = [
+//   { name: "Big Bob", score: 134 },
+//   { name: "Billy The Beast", score: 122 },
+//   { name: "Habanero Hillary", score: 98 },
+//   { name: "Joey Jaws", score: 94 },
+// ];
