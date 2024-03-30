@@ -18,7 +18,7 @@ function wordsToObject(input) {
   }
   return objects;
 }
-console.log(wordsToObject("red 1 yellow 2 black 3 white 4"));
+// console.log(wordsToObject("red 1 yellow 2 black 3 white 4"));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -35,7 +35,7 @@ function numObj(s) {
   }
   return objects;
 }
-console.log(numObj([118, 117, 120])); //[{'118':'v'}, {'117':'u'}, {'120':'x'}]
+// console.log(numObj([118, 117, 120])); //[{'118':'v'}, {'117':'u'}, {'120':'x'}]
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -95,7 +95,7 @@ function winner(deckSteve, deckJosh) {
     return `Josh wins ${deckJoshPoints} to ${deckStevePoints}`;
   } else return "Tie";
 }
-console.log(winner(["T", "A"], ["Q", "A"]));
+// console.log(winner(["T", "A"], ["Q", "A"]));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -114,7 +114,7 @@ function digitalRoot(n) {
     if (array.length === 1) return parseInt(array.join());
   }
 }
-console.log(digitalRoot(966503));
+// console.log(digitalRoot(966503));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -156,7 +156,7 @@ const itemExistsInAllArrays = arr
   .slice(1)
   .every((subArray) => subArray.includes(item));
 
-console.log(itemExistsInAllArrays); // Виведе true або false в залежності від того, чи є item в усіх підмасивах, крім першого
+// console.log(itemExistsInAllArrays); // Виведе true або false в залежності від того, чи є item в усіх підмасивах, крім першого
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -174,10 +174,107 @@ class Lamp {
   }
 }
 
-const myLamp = new Lamp("Blue");
-const myLamp1 = new Lamp("Blue1");
+// const a = new Lamp(b);
+// const b = new Lamp("Blue1");
 
-myLamp.toggleSwitch();
-console.log(myLamp.state());
-myLamp.toggleSwitch();
-console.log(myLamp.state());
+// myLamp.toggleSwitch();
+// console.log(myLamp.state());
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+class Student {
+  constructor(name, fives, tens, twenties) {
+    this.name = name;
+    this.fives = fives;
+    this.tens = tens;
+    this.twenties = twenties;
+  }
+}
+const andy = new Student("Andy", 0, 4, 0);
+const stephen = new Student("Stephen", 0, 6, 0);
+// const eric = new Student("Eric", 0, 4, 0);
+// const david = new Student("David", 0, 4, 0);
+function mostMoney(students) {
+  const newStudentsObj = [];
+  for (const element of students) {
+    let money = element.fives * 5 + element.tens * 10 + element.twenties * 20;
+    newStudentsObj.push({ name: element.name, money: money });
+  }
+  const result = newStudentsObj.reduce((acc, obj) => {
+    return acc.money > obj.money ? acc : obj;
+  }, 0);
+  const result2 = newStudentsObj.every(
+    ({ money }) => money === newStudentsObj[0].money
+  );
+  return result2 && students.length !== 1 ? "all" : result.name;
+}
+// console.log(mostMoney([andy, stephen]));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+var abc1 = "abcdefghijklmnopqrstuvwxyz";
+var abc2 = "etaoinshrdlucmfwypvbgkjqxz";
+
+class SubstitutionCipher {
+  constructor(abc1, abc2) {
+    this.abc1 = abc1.split("");
+    this.abc2 = abc2.split("");
+  }
+  encode(params) {
+    const paramsArr = params.split("");
+    const result = [];
+    for (let i = 0; i < paramsArr.length; i++) {
+      const firstIndex = this.abc1.indexOf(paramsArr[i]);
+      if (firstIndex === -1) result.push(paramsArr[i]);
+      else result.push(this.abc2[firstIndex]);
+    }
+    return result.join("");
+  }
+  decode(params) {
+    const paramsArr = params.split("");
+    const result = [];
+    for (let i = 0; i < paramsArr.length; i++) {
+      const firstIndex = this.abc2.indexOf(paramsArr[i]);
+      if (firstIndex === -1) result.push(paramsArr[i]);
+      else result.push(this.abc1[firstIndex]);
+    }
+    return result.join("");
+  }
+}
+
+var sub = new SubstitutionCipher(abc1, abc2);
+sub.encode("a&c"); // => "eta"
+sub.decode("qxz"); // => "xyz"
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+const numbers = [1, 2, 3, 4, 5];
+Array.prototype.square = function () {
+  return this.map((element) => element * element);
+};
+Array.prototype.cube = function () {
+  return this.map((element) => Math.pow(element, 3));
+};
+Array.prototype.average = function () {
+  let sum = 0;
+  this.map((element) => (sum += element));
+  return sum / this.length;
+};
+Array.prototype.sum = function () {
+  let sum = 0;
+  this.map((element) => (sum += element));
+  return sum;
+};
+Array.prototype.even = function () {
+  return this.filter((element) => element % 2 === 0);
+};
+Array.prototype.odd = function () {
+  return this.filter((element) => element % 2 !== 0);
+};
+
+numbers.square(); // must return [1, 4, 9, 16, 25]
+numbers.cube(); // must return [1, 8, 27, 64, 125]
+numbers.average(); // must return 3
+numbers.sum(); // must return 15
+numbers.even(); // must return [2, 4]
+numbers.odd(); // must return [1, 3, 5]

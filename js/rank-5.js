@@ -43,11 +43,10 @@ function krazyKingBlackjack(deck, king) {
   if (sumB + 10 - king <= 21 && king > 0) sumB += 10 - king;
   return sumB > 21 ? false : sumB;
 }
-console.log(krazyKingBlackjack(["K", "K", "K"], 4));
+// console.log(krazyKingBlackjack(["K", "K", "K"], 4));
 
 //?-------------------------------------- EXAMPLE ----------------------------------- //
 
-console.time("myCode");
 var a1 = ["B004", "A042", "A025", "A042", "C025"];
 var a2 = ["B009", "B040", "B004", "A042", "A025", "A042"];
 var a3 = ["A042", "A025", "B004"];
@@ -78,7 +77,7 @@ function idBestUsers(...arr) {
   newResult.sort((a, b) => b[0] - a[0]);
   return newResult;
 }
-console.log(idBestUsers(a1, a2, a3));
+// console.log(idBestUsers(a1, a2, a3));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -102,13 +101,13 @@ class Car {
 }
 
 const audi = new Car({ price: 35000 });
-console.log(audi.price); // 35000
+// console.log(audi.price); // 35000
 
 audi.price = 49000;
-console.log(audi.price); // 49000
+// console.log(audi.price); // 49000
 
 audi.price = 51000;
-console.log(audi.price); // 49000
+// console.log(audi.price); // 49000
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -179,8 +178,160 @@ class CaesarCipher {
   }
 }
 
-const c = new CaesarCipher(5);
-c.encode("R13VE"); // returns 'HTIJBFWX'
-c.decode("W13AJ"); // returns 'WAFFLES'
+const w = new CaesarCipher(5);
+w.encode("R13VE"); // returns 'HTIJBFWX'
+w.decode("W13AJ"); // returns 'WAFFLES'
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+
+class Vector {
+  constructor(arr) {
+    this.array = arr;
+  }
+  add(addArr) {
+    if (this.array.length === addArr.array.length) {
+      const result = [];
+      for (let i = 0; i < this.array.length; i++) {
+        result.push(this.array[i] + addArr.array[i]);
+      }
+      return new Vector(result);
+    } else return new Error("Arrays must have the same length.");
+  }
+  subtract(subtractArr) {
+    if (this.array.length === subtractArr.array.length) {
+      const result = [];
+      for (let i = 0; i < this.array.length; i++) {
+        result.push(this.array[i] - subtractArr.array[i]);
+      }
+      return new Vector(result);
+    } else return new Error("Arrays must have the same length.");
+  }
+  dot(dotArr) {
+    if (this.array.length === dotArr.array.length) {
+      const newArray = [];
+      for (let i = 0; i < this.array.length; i++) {
+        newArray.push(this.array[i] * dotArr.array[i]);
+      }
+      const result = newArray.reduce((acc, element) => {
+        return acc + element;
+      }, 0);
+      return new Vector(result);
+    } else return new Error("Arrays must have the same length.");
+  }
+  norm() {
+    let sumOfSquares = 0;
+    for (const element of this.array) {
+      sumOfSquares += element ** 2;
+    }
+    const magnitude = Math.sqrt(sumOfSquares);
+    return magnitude;
+  }
+  toString() {
+    return `(${this.array.join("")})`;
+  }
+}
+
+var a = new Vector([1, 2, 3]);
+var b = new Vector([3, 4, 5]);
+var c = new Vector([5, 6, 7, 8]);
+const sum = a.toString();
+// console.log(sum);
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+//* Create the NSA object
+var NSA = {};
+
+//* Create the Person constructor
+class Person {
+  constructor(person) {
+    this.name = person;
+    this.call = function (cellphone, callee) {
+      const str = `${cellphone.owner.name} texted ${callee.name} from ${person}'s phone (${cellphone.number})`;
+      if (!NSA[person]) {
+        NSA[person] = [str];
+      } else {
+        NSA[person].push(str);
+      }
+    };
+    this.text = function (cellphone, callee) {
+      const str = `${cellphone.owner.name} texted ${callee.name} from ${person}'s phone (${cellphone.number})`;
+      if (!NSA[person]) {
+        NSA[person] = [str];
+      } else {
+        NSA[person].push(str);
+      }
+    };
+  }
+}
+//* Create two people
+var dan = new Person("Dan");
+var mark = new Person("Mark");
+var viktor = new Person("Viktor");
+
+//* Create a phone object
+var phone = { owner: mark, number: "202-555-0199" };
+
+//* Make a phone call
+const res3 = mark.call(phone, viktor);
+var phone = { owner: mark, number: "202-555-0199" };
+mark.call(phone, dan);
+var phone = { owner: mark, number: "202-555-0199" };
+mark.text(phone, dan);
+
+Object.prototype.log = function (name) {
+  const result = NSA[name.name].filter(
+    (element, index) => NSA[name.name].indexOf(element) === index
+  );
+  return result.join("\n");
+};
+console.log(NSA.log(mark));
+
+//-------------------------------------- EXAMPLE ----------------------------------- //
+
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class Admin extends User {
+  static role = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  constructor(params) {
+    super(params.email);
+    this.access = params.access;
+    this.blacklistedEmails = [];
+  }
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
+}
+
+const mango = new Admin({
+  email: "mango@mail.com",
+  access: Admin.role.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.access); // "superuser"
+
+mango.blacklist("poly@mail.com");
+console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+console.log(mango.isBlacklisted("mango@mail.com")); // false
+console.log(mango.isBlacklisted("poly@mail.com")); // true
