@@ -1,5 +1,4 @@
-body {
-  /* background-color: rgb(87, 184, 128); */
+/* body {
   margin: 0;
   background: linear-gradient(to bottom, #d0e5a9, #bcd89e, #a7cb93, #92be88);
 }
@@ -52,7 +51,6 @@ path {
   position: absolute;
   top: 15%;
   left: 3%;
-  /* color: rgb(34, 136, 46); */
 }
 
 .prg {
@@ -71,4 +69,4 @@ path {
   position: absolute;
   bottom: 15%;
   right: 20%;
-}
+} */

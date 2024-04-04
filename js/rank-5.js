@@ -77,7 +77,7 @@ function idBestUsers(...arr) {
   newResult.sort((a, b) => b[0] - a[0]);
   return newResult;
 }
-// console.log(idBestUsers(a1, a2, a3));
+console.log(idBestUsers(a1, a2, a3));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
@@ -280,12 +280,12 @@ var phone = { owner: mark, number: "202-555-0199" };
 mark.text(phone, dan);
 
 Object.prototype.log = function (name) {
-  const result = NSA[name.name].filter(
-    (element, index) => NSA[name.name].indexOf(element) === index
-  );
-  return result.join("\n");
+  const uniqueValues = [...new Set(NSA[name.name])];
+  if (uniqueValues.length > 0) return uniqueValues.join("\n");
+  else return "No Entries";
 };
-console.log(NSA.log(mark));
+
+console.log(NSA.log(viktor));
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
