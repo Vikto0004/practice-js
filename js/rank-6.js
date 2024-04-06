@@ -280,3 +280,21 @@ numbers.even(); // must return [2, 4]
 numbers.odd(); // must return [1, 3, 5]
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
+
+const arrB = [1, 2, 33, 4, 1, 1, 3, 4, 4];
+for (let i = 0; i < arrB.length; i++) {
+  const element = arrB[i];
+  if (element === 4) {
+    arrB.splice(i, 1);
+    return console.log(arrB);
+  }
+}
+console.log(arrB);
+
+const abj = {
+  1: "value1",
+  2: "value2",
+  3: "value3",
+  4: "value4",
+  5: "value5",
+};
