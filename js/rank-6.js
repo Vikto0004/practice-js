@@ -281,20 +281,124 @@ numbers.odd(); // must return [1, 3, 5]
 
 //-------------------------------------- EXAMPLE ----------------------------------- //
 
-const arrB = [1, 2, 33, 4, 1, 1, 3, 4, 4];
-for (let i = 0; i < arrB.length; i++) {
-  const element = arrB[i];
-  if (element === 4) {
-    arrB.splice(i, 1);
-    return console.log(arrB);
+// Є два об'єкти, які описують деякі характеристики телефонів.
+// Потрібно викликати метод showInfo, щоб він логував інформацію про кожний телефон,
+// передаючи аргументом країну-виробник телефону.
+// "HUAWEI" - "China", "SAMSUNG" - "South Korea".
+
+const tel = {
+  regNumber: "AE8345FEDAS",
+  brand: "HUAWEI",
+  showInfo(country) {
+    // console.log(`${country} ${this.regNumber} ${this.brand}`);
+  },
+};
+const tel_2 = {
+  regNumber: "AO8518FEGHT",
+  brand: "SAMSUNG",
+};
+tel.showInfo("China");
+const res = tel.showInfo.bind(tel_2, "China");
+res();
+tel.showInfo.call(tel_2, "USA");
+tel.showInfo.apply(tel_2, ["South Korea"]);
+
+// Створіть клас Car, який має конструктор для зберігання марки та
+// року виробництва автомобіля.
+// 1. Додайте метод, який обчислює вік автомобіля на основі поточного року
+// та року виробництва і виведе в кнсоль рядок `Вік автомобіля: age років`
+// 2. Додайте перевірку, якщо вік автомобіля більше ніж 5 років, виводимо
+// повідомлення "Автомобіль потребує технічного обслуговування."
+// в іншому випадку - "Автомобіль не потребує технічного обслуговування зараз."
+// 3. Додайте перевірку, якщо рік виробництва перевищює поточний рік,
+// вивести повідомлення "Помилка: Рік виробництва не може бути пізнішим за поточний рік."
+class Car {
+  constructor(mark, year) {
+    this.mark = mark;
+    this.year = year;
+  }
+  age() {
+    console.log(`Вік автомобіля: ${currentYear - this.year} років`);
+    if (currentYear - this.year > 5) {
+      return `${this.mark} потребує технічного обслуговування.`;
+    } else if (this.year > currentYear) {
+      return "Помилка: Рік виробництва не може бути пізнішим за поточний рік.";
+    } else {
+      return `${this.mark} не потребує технічного обслуговування зараз.`;
+    }
   }
 }
-console.log(arrB);
+const currentYear = new Date().getFullYear();
+const ageCar = new Car("Ford", 2008);
+// console.log(ageCar.age());
 
-const abj = {
-  1: "value1",
-  2: "value2",
-  3: "value3",
-  4: "value4",
-  5: "value5",
-};
+// Створи клас Phone який створює об'єкт з ​​властивістю price.
+// Додай статичну властивість MAX_PRICE зі значенням 40000 - максимально допустима ціна телефону.
+// Оголоси приватну властивість price доступ до якої буде через геттер та сеттер.
+// Додай сетеру price перевірку значення параметра newPrice, що передається.Якщо воно більше за MAX_PRICE,
+// сеттер нічого не робить, а якщо менше або дорівнює, то перезаписує ціну телефону.
+
+class Phone {
+  static MAX_PRICE = 40000;
+  #price;
+  constructor(price) {
+    this.#price = price;
+  }
+  get price() {
+    return this.#price;
+  }
+  set price(newPrice) {
+    if (newPrice <= Phone.MAX_PRICE) {
+      this.#price = newPrice;
+    }
+  }
+}
+// const phone = new Phone(1000);
+// console.log(phone.price);
+// phone.price = 3000;
+// console.log(phone.price);
+// phone.price = 3000000;
+// console.log(phone.price);
+
+// Створи клас Calculator, котрий має приватну властивість #result для
+// зберігання результату обчислень, доступ до якої зроби через геттер.
+// На класі є наступні методи:
+// метод number, який набуває початкового значення для наступних операцій
+// методи add(додавання), substruct(віднімання), divide(ділення), multiply(множення)
+// через геттер #result повернемо фінальний результат усіх операцій, проведених з числом
+// Об'єкт класу приймає число і може проводити з ним послідовні операції у вигляді ланцюжка
+// Кожен метод виконує відповідну математичну операцію з поточним результатом
+// і повертає сам об'єкт Calculator, щоб дозволити ланцюжковий виклик методів.
+
+class Calculator {
+  #result;
+  constructor() {
+    this.#result = 0;
+  }
+  number(number) {
+    this.#result = number;
+    return this;
+  }
+  add(number) {
+    this.#result += number;
+    return this;
+  }
+  substruct(number) {
+    this.#result -= number;
+    return this;
+  }
+  divide(number) {
+    this.#result /= number;
+    return this;
+  }
+  multiply(number) {
+    this.#result *= number;
+    return this;
+  }
+  get result() {
+    return this.#result;
+  }
+}
+const calculator = new Calculator();
+const respons = calculator.number(4).add(5).substruct(1).multiply(10).result;
+console.log(respons);
