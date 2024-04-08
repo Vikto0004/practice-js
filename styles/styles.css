@@ -70,3 +70,59 @@ path {
   bottom: 15%;
   right: 20%;
 } */
+
+.hero-schedule {
+  padding: 6px 0;
+  position: relative;
+}
+
+.movingCircle {
+  border-radius: 100%;
+  fill: #c5bfed;
+  stroke-width: 1.05px;
+  stroke: #6c5fbc;
+  width: 4.5px;
+  height: 4.5px;
+}
+
+.hero-price-text {
+  text-align: center;
+  font-weight: 600;
+  font-size: 8px;
+  color: #fff;
+  border-radius: 8px;
+  width: 22px;
+  height: 10px;
+  background: #6c5fbc;
+  position: absolute;
+  bottom: 6px;
+  margin: 0;
+  left: 50px;
+}
+
+.svgContainer {
+  display: none;
+}
+
+.hero-time-wrap {
+  /* height: 9px; */
+}
+
+.hero-time-btn {
+  font-weight: 400;
+  font-size: 3px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #828282;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 18px;
+  height: 8px;
+  padding: 0;
+}
+
+.open {
+  display: block;
+}

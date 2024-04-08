@@ -401,4 +401,4 @@ class Calculator {
 }
 const calculator = new Calculator();
 const respons = calculator.number(4).add(5).substruct(1).multiply(10).result;
-console.log(respons);
+// console.log(respons);
