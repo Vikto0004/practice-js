@@ -45,12 +45,14 @@ svg.addEventListener("mouseup", function () {
   isMouseDown = false;
 });
 
-var svgContainer = document.querySelector(".svgContainer");
+var svgContainer = document.querySelector("#svgContainer");
 var movingCircle = document.getElementById("movingCircle");
 var curve = document.getElementById("curve");
 const heroPriceText = document.querySelector(".hero-price-text");
 
 var isMouseDown = false;
+
+console.log(curve.getTotalLength());
 
 // Функція для переміщення кола вздовж кривої
 function moveCircleAlongCurve(event) {

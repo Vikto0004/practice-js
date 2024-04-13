@@ -1,9 +1,9 @@
 /* body {
   margin: 0;
   background: linear-gradient(to bottom, #d0e5a9, #bcd89e, #a7cb93, #92be88);
-}
+} */
 
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,28 +22,31 @@
   position: absolute;
   bottom: 0;
   left: 0;
-}
+} */
 
-svg {
+/* svg {
   max-width: 290px;
   max-height: 290px;
+} */
+
+.quality-spiral-icon use {
+  stroke: rgb(173, 11, 11);
+  stroke-dashoffset: 0;
+  stroke-dasharray: 330;
+  animation: drawTwo 2s backwards infinite;
+  fill: none;
 }
 
-path {
-  stroke: rgb(0, 0, 0);
-  fill: rgb(34, 136, 46);
-  stroke-width: 6;
-  stroke-dasharray: 19000;
-  stroke-dashoffset: 19000;
-  animation: draw 60s linear forwards;
-}
-@keyframes draw {
+@keyframes drawTwo {
+  50% {
+    stroke-dashoffset: 320;
+  }
   100% {
     stroke-dashoffset: 0;
   }
 }
 
-.title {
+/* .title {
   font-family: "Caveat", cursive;
   font-weight: 100;
   font-size: 50px;
@@ -59,8 +62,8 @@ path {
   font-size: 22px;
   max-width: 210px;
   margin: auto auto;
-}
-
+} */
+/* 
 .vitok {
   font-family: "Caveat", cursive;
   font-weight: 500;
@@ -71,7 +74,7 @@ path {
   right: 20%;
 } */
 
-.hero-schedule {
+/* .hero-schedule {
   padding: 6px 0;
   position: relative;
 }
@@ -83,8 +86,8 @@ path {
   stroke: #6c5fbc;
   width: 4.5px;
   height: 4.5px;
-}
-
+} */
+/* 
 .hero-price-text {
   text-align: center;
   font-weight: 600;
@@ -98,18 +101,18 @@ path {
   bottom: 6px;
   margin: 0;
   left: 50px;
-}
-
-/* .svgContainer {
-  display: none;
 } */
 
-.hero-time-wrap {
-  /* height: 9px; */
+.svgContainer {
+  display: none;
 }
 
-.hero-time-btn {
-  font-weight: 400;
+/* .hero-time-wrap { */
+/* height: 9px; */
+/* } */
+
+/* .hero-time-btn { */
+/* font-weight: 400;
   font-size: 3px;
   letter-spacing: 0.01em;
   text-align: center;
@@ -125,4 +128,4 @@ path {
 
 .open {
   display: block;
-}
+} */
