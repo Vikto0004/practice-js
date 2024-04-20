@@ -29,7 +29,7 @@
   max-height: 290px;
 } */
 
-.quality-spiral-icon use {
+/* .quality-spiral-icon use {
   stroke: rgb(173, 11, 11);
   stroke-dashoffset: 0;
   stroke-dasharray: 330;
@@ -44,7 +44,7 @@
   100% {
     stroke-dashoffset: 0;
   }
-}
+} */
 
 /* .title {
   font-family: "Caveat", cursive;
@@ -129,3 +129,8 @@
 .open {
   display: block;
 } */
+
+#map {
+  height: 500px;
+  width: 100%;
+}
