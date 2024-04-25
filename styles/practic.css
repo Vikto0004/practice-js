@@ -1,0 +1,7 @@
+.delete {
+  display: none;
+}
+
+.open-delete {
+  display: block;
+}
