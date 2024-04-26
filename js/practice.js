@@ -152,3 +152,4 @@ elNewList.addEventListener("click", (event) => {
   localStorage.setItem("saveItem", JSON.stringify(newArr));
   elItem.remove();
 });
+///!sas
