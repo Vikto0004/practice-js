@@ -95,7 +95,7 @@ const elOpenBtn = document.querySelector(".js-open-btn");
 let saveArray = [];
 let counter = 0;
 
-if (saveArray.length === 0 && localStorage.getItem("saveItem").length > 0) {
+if (saveArray.length === 0 && localStorage.getItem("saveItem")) {
   saveArray = [...JSON.parse(localStorage.getItem("saveItem"))];
   counter = JSON.parse(localStorage.getItem("counter"));
 }
