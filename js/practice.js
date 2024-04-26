@@ -115,6 +115,27 @@ elOpenBtn.addEventListener("click", () => {
   elNewList.innerHTML = "";
   elNewList.insertAdjacentHTML("beforeend", saveArray.join(""));
 
+  const elTestIcon = document.querySelector(".test-icon");
+
+  const newElement =
+    '<svg width="15px" height="15px"><use href="./symbol-defs.svg#icon-cool"></use></svg>';
+  elTestIcon.insertAdjacentHTML("beforeend", newElement);
+
+  const svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svgIcon.setAttribute("width", "24");
+  svgIcon.setAttribute("height", "24");
+  const useElement = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "use"
+  );
+  useElement.setAttributeNS(
+    "http://www.w3.org/1999/xlink",
+    "href",
+    `./symbol-defs.svg#icon-cool`
+  );
+  svgIcon.appendChild(useElement);
+  elTestIcon.appendChild(svgIcon);
+
   const elBtnDel = elNewList.querySelectorAll(".delete");
   elBtnDel.forEach((element) => element.classList.add("open-delete"));
 });
